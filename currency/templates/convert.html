@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container convert-container">
+        <h1>Currency Converter</h1>
+        <form action="{{ url_for('convert') }}" method="POST">
+            <label for="from_currency">From Currency:</label>
+            <select name="from_currency" id="from_currency" required>
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="MXN">MXN - Mexican Peso</option>
+                <option value="BRL">BRL - Brazilian Real</option>
+                <option value="RUB">RUB - Russian Ruble</option>
+                <option value="CHF">CHF - Swiss Franc</option>
+                <option value="ZAR">ZAR - South African Rand</option>
+                <option value="SEK">SEK - Swedish Krona</option>
+                <option value="NOK">NOK - Norwegian Krone</option>
+                <option value="DKK">DKK - Danish Krone</option>
+                <option value="PLN">PLN - Polish Zloty</option>
+                <option value="SGD">SGD - Singapore Dollar</option>
+                <option value="HKD">HKD - Hong Kong Dollar</option>
+                <option value="MYR">MYR - Malaysian Ringgit</option>
+                <option value="PHP">PHP - Philippine Peso</option>
+                <option value="THB">THB - Thai Baht</option>
+                <option value="IDR">IDR - Indonesian Rupiah</option>
+                <option value="KRW">KRW - South Korean Won</option>
+                <option value="VND">VND - Vietnamese Dong</option>
+                <option value="SAR">SAR - Saudi Riyal</option>
+                <option value="EGP">EGP - Egyptian Pound</option>
+                <option value="TRY">TRY - Turkish Lira</option>
+                <option value="ILS">ILS - Israeli New Shekel</option>
+                <option value="AED">AED - United Arab Emirates Dirham</option>
+                <option value="KWD">KWD - Kuwaiti Dinar</option>
+                <option value="QAR">QAR - Qatari Rial</option>
+                <option value="OMR">OMR - Omani Rial</option>
+                <option value="BHD">BHD - Bahraini Dinar</option>
+                <option value="KZT">KZT - Kazakhstani Tenge</option>
+                <option value="AZN">AZN - Azerbaijani Manat</option>
+                <option value="MDL">MDL - Moldovan Leu</option>
+                <option value="UZS">UZS - Uzbekistani Som</option>
+                <option value="LKR">LKR - Sri Lankan Rupee</option>
+                <option value="PKR">PKR - Pakistani Rupee</option>
+                <option value="NGN">NGN - Nigerian Naira</option>
+                <option value="GHS">GHS - Ghanaian Cedi</option>
+                <option value="COP">COP - Colombian Peso</option>
+                <option value="CLP">CLP - Chilean Peso</option>
+                <option value="PEN">PEN - Peruvian Nuevo Sol</option>
+                <option value="COP">COP - Colombian Peso</option>
+                <option value="ARS">ARS - Argentine Peso</option>
+                <option value="PYG">PYG - Paraguayan Guarani</option>
+                <option value="BOB">BOB - Bolivian Boliviano</option>
+                <option value="VEF">VEF - Venezuelan Bolívar</option>
+                <option value="TTD">TTD - Trinidad and Tobago Dollar</option>
+                <option value="FJD">FJD - Fijian Dollar</option>
+                <option value="SBD">SBD - Solomon Islands Dollar</option>
+                <option value="BND">BND - Brunei Dollar</option>
+            </select>
+
+            <label for="to_currency">To Currency:</label>
+            <select name="to_currency" id="to_currency" required>
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="MXN">MXN - Mexican Peso</option>
+                <option value="BRL">BRL - Brazilian Real</option>
+                <option value="RUB">RUB - Russian Ruble</option>
+                <option value="CHF">CHF - Swiss Franc</option>
+                <option value="ZAR">ZAR - South African Rand</option>
+                <option value="SEK">SEK - Swedish Krona</option>
+                <option value="NOK">NOK - Norwegian Krone</option>
+                <option value="DKK">DKK - Danish Krone</option>
+                <option value="PLN">PLN - Polish Zloty</option>
+                <option value="SGD">SGD - Singapore Dollar</option>
+                <option value="HKD">HKD - Hong Kong Dollar</option>
+                <option value="MYR">MYR - Malaysian Ringgit</option>
+                <option value="PHP">PHP - Philippine Peso</option>
+                <option value="THB">THB - Thai Baht</option>
+                <option value="IDR">IDR - Indonesian Rupiah</option>
+                <option value="KRW">KRW - South Korean Won</option>
+                <option value="VND">VND - Vietnamese Dong</option>
+                <option value="SAR">SAR - Saudi Riyal</option>
+                <option value="EGP">EGP - Egyptian Pound</option>
+                <option value="TRY">TRY - Turkish Lira</option>
+                <option value="ILS">ILS - Israeli New Shekel</option>
+                <option value="AED">AED - United Arab Emirates Dirham</option>
+                <option value="KWD">KWD - Kuwaiti Dinar</option>
+                <option value="QAR">QAR - Qatari Rial</option>
+                <option value="OMR">OMR - Omani Rial</option>
+                <option value="BHD">BHD - Bahraini Dinar</option>
+                <option value="KZT">KZT - Kazakhstani Tenge</option>
+                <option value="AZN">AZN - Azerbaijani Manat</option>
+                <option value="MDL">MDL - Moldovan Leu</option>
+                <option value="UZS">UZS - Uzbekistani Som</option>
+                <option value="LKR">LKR - Sri Lankan Rupee</option>
+                <option value="PKR">PKR - Pakistani Rupee</option>
+                <option value="NGN">NGN - Nigerian Naira</option>
+                <option value="GHS">GHS - Ghanaian Cedi</option>
+                <option value="COP">COP - Colombian Peso</option>
+                <option value="CLP">CLP - Chilean Peso</option>
+                <option value="PEN">PEN - Peruvian Nuevo Sol</option>
+                <option value="COP">COP - Colombian Peso</option>
+                <option value="ARS">ARS - Argentine Peso</option>
+                <option value="PYG">PYG - Paraguayan Guarani</option>
+                <option value="BOB">BOB - Bolivian Boliviano</option>
+                <option value="VEF">VEF - Venezuelan Bolívar</option>
+                <option value="TTD">TTD - Trinidad and Tobago Dollar</option>
+                <option value="FJD">FJD - Fijian Dollar</option>
+                <option value="SBD">SBD - Solomon Islands Dollar</option>
+                <option value="BND">BND - Brunei Dollar</option>
+            </select>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="any" required>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if converted_amount %}
+        <h2>Conversion Result:</h2>
+        <p>{{ amount }} {{ from_currency }} is equal to {{ converted_amount }} {{ to_currency }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
